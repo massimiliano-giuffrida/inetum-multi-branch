@@ -43,12 +43,18 @@ pipeline {
         }
        stage('Unit test'){
             //definimos los pasos de cada stage
+           when{
+               branch 'testing'
+           }
             steps{
                 echo 'unit testint';
             }
         }
         stage('Code Analysis'){
             //definimos los pasos de cada stage
+            when{
+                branch 'developer'
+            }
             steps{
                 echo 'analysis';
             }
